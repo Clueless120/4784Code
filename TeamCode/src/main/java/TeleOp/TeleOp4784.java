@@ -72,6 +72,8 @@ public class TeleOp4784 extends LinearOpMode {
 
             boolean LB = gamepad1.left_bumper;
             boolean RB = gamepad1.right_bumper;
+            boolean AButton = gamepad1.a;
+            boolean XButton = gamepad1.x;
 
             if(LB) {
                 robot.scoring.IntakeL.setDirection(Servo.Direction.REVERSE);
@@ -91,6 +93,11 @@ public class TeleOp4784 extends LinearOpMode {
             else {
                 robot.scoring.IntakeL.setPosition(0);
                 robot.scoring.IntakeR.setPosition(0);
+            }
+            if (AButton) {
+                robot.scoring.IntakePivot.setPosition(1);
+            } else if (XButton) {
+                robot.scoring.IntakePivot.setPosition(0);
             }
         }
 

@@ -61,7 +61,7 @@ public class Robot {
 
     }
     public class Scoring {
-        public Servo IntakeL, IntakeR;
+        public Servo IntakeL, IntakeR, IntakePivot;
 
         public void init(HardwareMap hwMap){
             IntakeL = hwMap.servo.get("IntakeL");
@@ -69,7 +69,11 @@ public class Robot {
 
             IntakeR = hwMap.servo.get("IntakeR");
             IntakeR.setPosition(0.00);
+
+            IntakePivot = hwMap.servo.get("IntakePivot");
+            IntakePivot.setPosition(0.00);
         }
+
 
     }
 
