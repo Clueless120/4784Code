@@ -55,21 +55,20 @@ public class TeleOp4784 extends LinearOpMode {
 //            int verticalToleranceThreshold =   25;  // Threshold Value (Adjust)
 //            double slowFactor = 0.75;
 
+
             final double HOLD = 0.0005;
             boolean Holding = false;
 
-            if (gamepad1.right_trigger > 0) {
+            if (gamepad1.right_trigger > 0 && robot.slides.LinearSlide.getCurrentPosition() < 4000) {
                 robot.slides.LinearSlide.setPower(1.00);
-            }
-
-            else if (gamepad1.left_trigger < 0 ) {
+            } else if (gamepad1.left_trigger > 0 && robot.slides.LinearSlide.getCurrentPosition() > 0) {
                 robot.slides.LinearSlide.setPower(-1.00);
-            }
-
-            else {
+            } else {
+                // Stop the slide and set the brake behavior
                 robot.slides.LinearSlide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
                 robot.slides.LinearSlide.setPower(0.00);
             }
+
 
             boolean LB = gamepad1.left_bumper;
             boolean RB = gamepad1.right_bumper;
@@ -96,11 +95,11 @@ public class TeleOp4784 extends LinearOpMode {
         }
 
         if (gamepad1.dpad_up) {
-            robot.slides.LinearPivot.setPower(1.0); // Move pivot up
+            robot.slides.LinearPivot.setPower(1.0);
         } else if (gamepad1.dpad_down) {
-            robot.slides.LinearPivot.setPower(-1.0); // Move pivot down
+            robot.slides.LinearPivot.setPower(-1.0);
         } else {
-            robot.slides.LinearPivot.setPower(0); // Stop pivot when D-pad is not pressed
+            robot.slides.LinearPivot.setPower(0);
         }
     }
 }

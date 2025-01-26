@@ -52,6 +52,7 @@ public class Robot {
             LinearSlide = hwMap.dcMotor.get("LinearSlide");
             LinearSlide.setDirection(DcMotorSimple.Direction.FORWARD);
             LinearSlide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+            LinearSlide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
             LinearPivot = hwMap.dcMotor.get("LinearPivot");
             LinearPivot.setDirection(DcMotorSimple.Direction.FORWARD);
